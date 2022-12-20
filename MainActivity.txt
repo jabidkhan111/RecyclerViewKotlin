@@ -1,0 +1,21 @@
+class MainActivity : AppCompatActivity() {
+    lateinit var binding: ActivityMainBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding= ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val arrayList =ArrayList<ModelClass>()
+
+        arrayList.add(ModelClass(R.drawable.mouse_one,"Mouse one"))
+        arrayList.add(ModelClass(R.drawable.mouse_two,"Mouse Two"))
+        arrayList.add(ModelClass(R.drawable.mouse_three,"Mouse Three"))
+        arrayList.add(ModelClass(R.drawable.mouse_four,"Mouse Four"))
+        arrayList.add(ModelClass(R.drawable.mouse_five,"Mouse Five"))
+        arrayList.add(ModelClass(R.drawable.key_one,"Mouse One"))
+
+        binding.recyclerView.layoutManager=LinearLayoutManager(this)
+        val recyclerViw=AdapterClass(this,arrayList)
+        binding.recyclerView.adapter=recyclerViw
+    }
+}
